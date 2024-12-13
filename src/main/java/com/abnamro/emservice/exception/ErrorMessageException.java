@@ -18,8 +18,4 @@ public class ErrorMessageException extends RuntimeException {
         this.errorMessages = Collections.singletonList(errorMessage);
     }
 
-    public ErrorMessageException(String errorMessage, Throwable cause) {
-        super(cause);
-        this.errorMessages = Collections.singletonList(errorMessage);
-    }
 }

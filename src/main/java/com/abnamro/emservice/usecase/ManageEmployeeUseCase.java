@@ -2,7 +2,6 @@ package com.abnamro.emservice.usecase;
 
 import com.abnamro.empersistenceservice.generated.model.CreateUpdateEmployeeRequest;
 import com.abnamro.emservice.entities.Employee;
-import com.abnamro.emservice.entities.RolesEnum;
 import com.abnamro.emservice.exception.ErrorMessageException;
 import com.abnamro.emservice.mapper.CreateUpdateEmployeeMapper;
 import com.abnamro.emservice.presenter.EmployeePresenter;
@@ -26,7 +25,7 @@ public class ManageEmployeeUseCase {
     private final FeignEmPersistenceClient feignEmPersistenceClient;
     private final CreateUpdateEmployeeMapper mapper;
 
-    public void getEmployee(String role, Integer employeeId, EmployeePresenter employeePresenter){
+    public void getEmployee(Integer employeeId, EmployeePresenter employeePresenter){
         try{
             var employee = feignEmPersistenceClient.getEmployee(employeeId);
             validateResponse(employee);
@@ -63,7 +62,7 @@ public class ManageEmployeeUseCase {
             presenter.success(employee);
         } catch (FeignException e){
             log.error(e.getMessage(), e);
-            throw new ErrorMessageException("Creating employee failed");
+            throw new ErrorMessageException("Update employee failed");
         }
 
     }
@@ -77,7 +76,7 @@ public class ManageEmployeeUseCase {
     }
 
     @PreAuthorize("hasRole('ADMIN')")
-    public void removeEmployee(String role, Integer employeeId, GenericSuccessPresenter presenter){
+    public void removeEmployee(Integer employeeId, GenericSuccessPresenter presenter){
         try {
             feignEmPersistenceClient.deleteEmployee(employeeId);
             presenter.success("Employee deleted successfully");
@@ -89,7 +88,7 @@ public class ManageEmployeeUseCase {
     }
 
     private void validateResponse(Employee employee){
-        if(StringUtils.isBlank(employee.getFullName())
+        if(employee == null || StringUtils.isBlank(employee.getFullName())
                 || !employee.getFullName().contains(" ")
                 || employee.getFullName().split(" ").length != 2){
             throw new ErrorMessageException("The employee requested is corrupted.");

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: em-service
+  security:
+    enabled: false
+    user:
+      name: admin
+      password: abnamro
+
+em:
+  persistence:
+    service:
+      apiKey: em-persistence-api-key
+      url: http://localhost:8887
+
+api:
+  key: em-api-key
+
+logging:
+  level:
+    feign: INFO
+    okhttp3: INFO

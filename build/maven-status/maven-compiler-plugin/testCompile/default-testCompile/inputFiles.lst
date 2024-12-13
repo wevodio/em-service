@@ -1,0 +1,7 @@
+/Users/mschubert/Projects/abnamro/em-service/src/test/java/com/abnamro/emservice/EmServiceApplicationTests.java
+/Users/mschubert/Projects/abnamro/em-service/src/test/java/com/abnamro/emservice/config/feign/OriginalMessageErrorDecoderTest.java
+/Users/mschubert/Projects/abnamro/em-service/src/test/java/com/abnamro/emservice/controller/EmployeeManagementControllerTest.java
+/Users/mschubert/Projects/abnamro/em-service/src/test/java/com/abnamro/emservice/mapper/CreateUpdateEmployeeMapperTest.java
+/Users/mschubert/Projects/abnamro/em-service/src/test/java/com/abnamro/emservice/usecase/ManageEmployeeUseCaseTest.java
+/Users/mschubert/Projects/abnamro/em-service/src/test/java/com/abnamro/emservice/utils/EmployeeUtilsTest.java
+/Users/mschubert/Projects/abnamro/em-service/src/test/java/com/abnamro/emservice/utils/TestUtil.java

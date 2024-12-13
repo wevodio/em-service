@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -36,17 +35,15 @@ public class EmployeeManagementController implements EmployeeManagementServiceAp
 
     @Override
     public ResponseEntity<GetEmployeeResultOk> apiEmployeesIdGet(Integer id) {
-        var role = request.getHeader(ROLE);
         var presenter = new JsonEmployeePresenter();
-        manageEmployeeUseCase.getEmployee(role, id, presenter);
+        manageEmployeeUseCase.getEmployee(id, presenter);
         return presenter.toResponseEntity();
     }
 
     @Override
     public ResponseEntity<SuccessResponse> apiEmployeesIdDelete(Integer id) {
-        var role = request.getHeader(ROLE);
         var presenter = new JsonGenericSuccessPresenter();
-        manageEmployeeUseCase.removeEmployee(role, id, presenter);
+        manageEmployeeUseCase.removeEmployee(id, presenter);
         return presenter.toResponseEntity();
     }
 

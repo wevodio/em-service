@@ -31,14 +31,6 @@ public class OriginalMessageErrorDecoder implements ErrorDecoder {
                 defaultErrorDecoder.decode(methodKey, response);
             }
         }
-        if (response.status() == 503) {
-            return new RetryableException(
-                    response.status(),
-                    "Service Unavailable",
-                    response.request().httpMethod(),
-                    5L, // Cause
-                    response.request());
-        }
         log.info("Other status return defaultErrorDecoder");
         return defaultErrorDecoder.decode(methodKey, response);
     }

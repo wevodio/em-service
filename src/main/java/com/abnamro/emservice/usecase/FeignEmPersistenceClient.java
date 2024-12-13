@@ -2,6 +2,7 @@ package com.abnamro.emservice.usecase;
 
 import com.abnamro.emservice.entities.Employee;
 import com.abnamro.emservice.services.empersistence.entities.EmPersistenceCreateUpdateEmployeeRequest;
+import com.abnamro.emservice.services.empersistence.entities.EmPersistenceSuccessResponse;
 import feign.Headers;
 import feign.Param;
 import feign.RequestLine;
@@ -35,6 +36,6 @@ public interface FeignEmPersistenceClient {
             "Accept: application/json;charset=UTF-8",
             "Content-Type: application/json"
     })
-    Employee deleteEmployee(@Param("employeeId") Integer employeeId);
+    EmPersistenceSuccessResponse deleteEmployee(@Param("employeeId") Integer employeeId);
 
 }

@@ -34,8 +34,4 @@ public class EmPersistenceServiceClientConfig {
                 .target(FeignEmPersistenceClient.class, url);
     }
 
-//    @Bean
-//    public Retryer retryer() {
-//        return new Retryer.Default(200, SECONDS.toMillis(2), 3);
-//    }
 }
