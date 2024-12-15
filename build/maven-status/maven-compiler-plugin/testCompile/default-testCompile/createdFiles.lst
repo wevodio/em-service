@@ -1,7 +1,0 @@
-com/abnamro/emservice/mapper/CreateUpdateEmployeeMapperTest.class
-com/abnamro/emservice/controller/EmployeeManagementControllerTest.class
-com/abnamro/emservice/EmServiceApplicationTests.class
-com/abnamro/emservice/utils/EmployeeUtilsTest.class
-com/abnamro/emservice/usecase/ManageEmployeeUseCaseTest.class
-com/abnamro/emservice/config/feign/OriginalMessageErrorDecoderTest.class
-com/abnamro/emservice/utils/TestUtil.class
